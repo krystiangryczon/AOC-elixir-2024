@@ -8,10 +8,7 @@ defmodule Advent.Code2_2 do
       [h | rest] = List.delete_at(list, idx)
 
       order =
-        case h > Enum.at(rest, length(rest) - 1) do
-          true -> :desc
-          false -> :asc
-        end
+        if h > Enum.at(rest, length(rest) - 1), do: :desc, else: :asc
 
       check(rest, h, order)
     end)
@@ -24,7 +21,8 @@ defmodule Advent.Code2_2 do
       String.split(x, " ")
       |> Enum.map(&String.to_integer/1)
     end)
-    |> Enum.filter(&brute_force_check/1)
+    |> Enum.map(&Task.async(fn -> brute_force_check(&1) end))
+    |> Enum.filter(&Task.await/1)
     |> length()
   end
 end

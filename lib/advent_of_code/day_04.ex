@@ -1,7 +1,7 @@
 defmodule AdventOfCode.Day04 do
-  def part1(inp) do
+  def part1(_inp) do
   end
 
-  def part2(inp) do
+  def part2(_inp) do
   end
 end

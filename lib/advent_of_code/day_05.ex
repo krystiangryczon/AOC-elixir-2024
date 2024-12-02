@@ -1,7 +1,7 @@
 defmodule AdventOfCode.Day05 do
-  def part1(inp, separator) do
+  def part1(_inp) do
   end
 
-  def part2(_args) do
+  def part2(_inp) do
   end
 end

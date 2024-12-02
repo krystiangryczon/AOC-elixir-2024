@@ -1,7 +1,7 @@
 defmodule AdventOfCode.Day17 do
-  def part1(_args) do
+  def part1(_inp) do
   end
 
-  def part2(_args) do
+  def part2(_inp) do
   end
 end

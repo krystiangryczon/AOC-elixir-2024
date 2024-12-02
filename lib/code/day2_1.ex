@@ -6,18 +6,14 @@ defmodule Advent.Code2_1 do
 
     case order do
       :asc ->
-        if(abs(prev - f) > 3 || prev >= f) do
-          false
-        else
-          check(rest, f, order)
-        end
+        if abs(prev - f) > 3 || prev >= f,
+          do: false,
+          else: check(rest, f, order)
 
       :desc ->
-        if(abs(prev - f) > 3 || prev <= f) do
-          false
-        else
-          check(rest, f, order)
-        end
+        if abs(prev - f) > 3 || prev <= f,
+          do: false,
+          else: check(rest, f, order)
     end
   end
 
@@ -25,10 +21,7 @@ defmodule Advent.Code2_1 do
     [h | rest] = list
 
     order =
-      case h > Enum.at(rest, 0) do
-        true -> :desc
-        false -> :asc
-      end
+      if h > Enum.at(rest, 0), do: :desc, else: :asc
 
     check(rest, h, order)
   end
