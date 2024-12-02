@@ -43,7 +43,7 @@ defmodule AdventOfCode.Day05Test do
   @tag :skip
   test "part1" do
     input = test_input()
-    result = part1(input, "\n")
+    result = part1(input)
 
     assert result == 35
   end
