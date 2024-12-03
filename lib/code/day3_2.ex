@@ -6,16 +6,17 @@ defmodule Advent.Code3_2 do
     |> Enum.product()
   end
 
-  defp sum_when_do([], acc, _should_add?), do: acc
+  defp sum?([], acc, _add?), do: acc
 
-  defp sum_when_do(["do()" | rest], acc, _should_add?), do: sum_when_do(rest, acc, true)
-  defp sum_when_do(["don't()" | rest], acc, _should_add?), do: sum_when_do(rest, acc, false)
-  defp sum_when_do([h | rest], acc, true), do: sum_when_do(rest, acc + exec(h), true)
-  defp sum_when_do([_h | rest], acc, false), do: sum_when_do(rest, acc, false)
+  defp sum?(["do()" | rest], acc, _add?), do: sum?(rest, acc, :do)
+  defp sum?(["don't()" | rest], acc, _add?), do: sum?(rest, acc, :dont)
+  defp sum?([h | rest], acc, :do), do: sum?(rest, acc + exec(h), :do)
+  defp sum?([_ | rest], acc, :dont), do: sum?(rest, acc, :dont)
 
   def run(input) do
-    Regex.scan(~r/mul\(\d{1,3},\d{1,3}\)|do\(\)|don\'t\(\)/, input)
+    ~r/mul\(\d{1,3},\d{1,3}\)|do\(\)|don\'t\(\)/
+    |> Regex.scan(input)
     |> Enum.flat_map(& &1)
-    |> sum_when_do(0, true)
+    |> sum?(0, :do)
   end
 end
