@@ -31,4 +31,11 @@ defmodule My.Utils do
         AdventOfCode.Input.get!(day)
     end
   end
+
+  def bti(true), do: 1
+  def bti(false), do: 0
+  def bti(nil), do: 0
+  def bti(1), do: 1
+  def bti(0), do: 0
+  def bti(num) when is_integer(num), do: num
 end
