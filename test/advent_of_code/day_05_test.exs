@@ -1,58 +1,50 @@
 defmodule AdventOfCode.Day05Test do
   use ExUnit.Case
-
+  import My.Utils, only: [get_test_input: 2]
   import AdventOfCode.Day05
 
-  def test_input(),
-    do: """
-    seeds: 79 14 55 13
+  @test_input """
+  47|53
+  97|13
+  97|61
+  97|47
+  75|29
+  61|13
+  75|53
+  29|13
+  97|29
+  53|29
+  61|53
+  97|53
+  61|29
+  47|13
+  75|47
+  97|75
+  47|61
+  75|61
+  47|29
+  75|13
+  53|13
 
-    seed-to-soil map:
-    50 98 2
-    52 50 48
+  75,47,61,53,29
+  97,61,53,29,13
+  75,29,13
+  75,97,47,61,53
+  61,13,29
+  97,13,75,29,47
+  """
 
-    soil-to-fertilizer map:
-    0 15 37
-    37 52 2
-    39 0 15
-
-    fertilizer-to-water map:
-    49 53 8
-    0 11 42
-    42 0 7
-    57 7 4
-
-    water-to-light map:
-    88 18 7
-    18 25 70
-
-    light-to-temperature map:
-    45 77 23
-    81 45 19
-    68 64 13
-
-    temperature-to-humidity map:
-    0 69 1
-    1 0 69
-
-    humidity-to-location map:
-    60 56 37
-    56 93 4
-    """
-
-  @tag :skip
   test "part1" do
-    input = test_input()
+    input = get_test_input(@test_input, 5)
     result = part1(input)
 
-    assert result == 35
+    assert result == 143
   end
 
-  @tag :skip
   test "part2" do
-    input = nil
+    input = get_test_input(@test_input, 5)
     result = part2(input)
 
-    assert result
+    assert result == 123
   end
 end
