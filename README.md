@@ -3,6 +3,7 @@
 <hr />
 
 I learned a little bit of Elixir!
+I was sick through days 6-8 :(
 
 <sub>it's a fork of [this repo](https://github.com/mhanberg/advent-of-code-elixir-starter/tree/main)</sub>
 
