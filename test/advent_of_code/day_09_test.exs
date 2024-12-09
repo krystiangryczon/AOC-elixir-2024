@@ -12,8 +12,6 @@ defmodule AdventOfCode.Day09Test do
     assert result == 1928
   end
 
-  @tag timeout: :infinity
-  @tag :current
   test "part2" do
     input = get_test_input(@test_input, 9)
     result = part2(input)
