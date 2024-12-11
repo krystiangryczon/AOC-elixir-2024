@@ -38,4 +38,15 @@ defmodule My.Utils do
   def bti(1), do: 1
   def bti(0), do: 0
   def bti(num) when is_integer(num), do: num
+
+  def at(matrix, row, col) do
+    row = Enum.at(matrix, row)
+
+    cond do
+      col < 0 -> nil
+      row < 0 -> nil
+      is_nil(row) -> nil
+      true -> Enum.at(row, col)
+    end
+  end
 end
